@@ -1,0 +1,446 @@
+/*======= RESET ==================================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: #7E3362;
+    font-size: 2rem;
+
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+
+
+/*======= VARIABLES ===============================================*/
+
+
+:root {
+    --header-height: 4.5rem;
+
+    --hue: 159;
+
+    --base-color: #7E3362;
+    --base-color2: #FFE8E8;
+    --base-color3: #FF6600;
+    --base-color4: #5D8F7E;
+    --base-color5:#D1D0D0;
+}
+
+
+/*======= BASE ===================================================*/
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font: 400 1rem 'DM Sans', sans-serif;
+    color: var(--base-color);
+    background: var(--base-color2);
+    -webkit-font-smoothing: antialiased;
+}
+
+.title {
+    color: #7E3362;
+    font: 700 1.825rem 'Poppins', sans-serif;
+    -webkit-font-smoothing: auto;
+}
+
+.button {
+    background-color: var(--base-color);
+    color: var(--base-color2);
+    height: 3.5rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 2rem;
+    border-radius: 0.25rem;
+    font: 500 1rem 'DM Sans', sans-serif;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background-color: var(--base-color4);
+}
+
+.divider-1 {
+    height: 2px;
+    background: linear-gradient(
+        270deg,
+        #7E3362 0%,
+        #FFE8E8 100%
+        );
+}
+
+.divider-2 {
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        #7E3362 0%,
+        #FFE8E8 100%
+        );
+}
+
+/*======= LAYOUT ==================================================*/
+
+.container {
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.section {
+    margin: 5rem 0rem;
+
+}
+
+.section .title {
+    margin-bottom: 1rem;
+}
+
+.section header {
+    margin-bottom: 4rem;
+}
+
+servicos h2 {
+    font-size: 3rem;
+}
+
+
+#header {
+    overflow: hidden;
+}
+
+#header {
+    border-bottom: 1px solid var(--base-color5);
+    margin-bottom: 2rem;
+    display: flex;
+
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: var(--base-color2);
+}
+
+#header.scroll {
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.2);
+}
+
+
+/*======= NAVIGATION ===============================================*/
+
+nav {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+nav ul.grid {
+    gap: 4rem;
+}
+
+nav ul li {
+    text-align: center;
+}
+
+nav ul li a {
+    transition: 0.5s;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--base-color4);
+
+}
+
+nav ul li a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background-color: #5D8F7E;
+
+    position: absolute;
+    left: 0;
+    bottom: -1.5rem;
+
+    transition: width 0.2s;
+}
+
+nav ul li a:hover::after{
+    width: 100%;
+}
+
+
+nav .menu{
+    opacity: 0;
+    visibility: hidden;
+    top: -20rem;
+    transition: 0.2s;
+}
+
+nav .menu ul{
+    display: none;
+}
+
+
+nav.show .menu{
+    opacity: 1;
+    visibility: visible;
+
+    background: var(--base-color2);
+
+    height: 100vh;
+    width: 100vw;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: grid;
+    place-content: center;
+
+}
+
+
+nav.show .menu ul {
+    display: grid;
+}
+
+nav.show ul.grid{
+    gap: 4rem;
+}
+
+/*======= TOGGLE MENU ========*/
+
+.toggle {
+    color: #7E3362;
+    font: 1.5rem;
+    cursor: pointer;
+
+}
+
+nav .icon-closed {
+    visibility: hidden;
+    opacity: 0;
+
+    position: absolute;
+    top: -1.5rem;
+    right: 1.5rem;
+
+    transition: 0.2s;
+}
+
+nav.show div.icon-closed {
+    visibility: visible;
+    opacity: 1;
+    top: 1.5rem;
+}
+
+.logo span {
+    color:#7E3362;
+}
+
+
+.logo {
+    font: 700 1.825rem 'Poppins', sans-serif;
+    color:#5D8F7E
+    
+}
+
+main {
+    margin-top: calc(var(--header-height) + 2rem);
+}
+
+
+/*======= HOME ===================================================*/
+
+
+#home {
+    overflow: hidden;
+}
+
+#home .container {
+    margin: 0;
+    
+}
+
+
+#home .image {
+    position: relative;
+    
+}
+
+#home .image::before {
+    content:'';
+    height: 100%;
+    width: 100%;
+    background: #7E3362;
+    position: absolute;
+    top: -16.8%;
+    left: 16.8%;
+    z-index: 0;
+}
+
+#home .image img {
+    position: relative;
+    right: 2.93rem;
+
+}
+
+#home .image img,
+#home .image::before {
+     border-radius: 0.25rem;   
+}
+
+#home .text {
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+    text-align: center;
+}
+
+#home .text h1 {
+    margin-bottom: 1rem;
+}
+
+#home .text p {
+    margin-bottom: 2rem;
+}
+
+/*====== SOBRE NÓS ========================================*/
+
+#about .image {
+    position: relative;
+    
+}
+
+#about .image::before {
+    content:'';
+    height: 100%;
+    width: 100%;
+    background: #7E3362;
+    position: absolute;
+    top: -8.3%;
+    left: -33%;
+    z-index: 0;
+}
+
+#about .image img {
+    position: relative;
+    right: 2.93rem;
+}
+
+#about .image img,
+#about .image::before {
+     border-radius: 0.25rem;   
+}
+
+#about .text {
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+   
+}
+
+#about .text h2 {
+    font-size: 2rem;
+
+}
+
+
+/*======== SERVIÇOS ========================================*/
+
+#services .image {
+    position: relative;
+    
+}
+
+#services .image::before {
+    content:'';
+    height: 100%;
+    width: 100%;
+    background: #7E3362;
+    position: absolute;
+    top: -8.3%;
+    left: -33%;
+    z-index: 0;
+}
+
+#services .image img {
+    position: relative;
+    right: 2.93rem;
+}
+
+#services .image img,
+#services .image::before {
+     border-radius: 0.25rem;   
+}
+
+#services .text {
+    margin-right: 1.5rem;
+    margin-left: 1.5rem;
+   
+}
+
+#services .text h2 {
+    font-size: 2rem;
+
+}
+
+/*======  CARDS ==================================================*/
+
+.delivery img {
+    width: 7rem;
+    height: 7rem;
+}
+
+.car img {
+    width: 7rem;
+    height: 7rem;
+}
+
+.pizza img {
+    width: 9rem;
+    height: 9rem;
+}
+
+.card.grid {
+    gap: 1.5rem;
+}
+
+.card {
+    padding: 3.625rem 2rem;
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.08);
+    border-bottom: 0.25rem solid var(--base-color);
+    border-radius: .25rem .25rem 0 0;
+    text-align: center;
+
+}
+
+.card i {
+    display: block;
+    margin-bottom: 1.5rem;
+    font-size: 5rem;
+    color: var(--base-color);
+}
+
+.card title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
